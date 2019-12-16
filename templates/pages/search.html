@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <section class="menu">
+        <div class="menu-cover">
+            <div class="menu-top">
+                <h5 class="menu-title">
+                    جستجو
+                </h5>
+                {% if foods %}
+                    {% for food in foods %}
+                        <h3 class="menu-heading">
+                              غذا های پیدا شده
+                        </h3>
+                    {% endfor %}
+                {% else %}
+                    <h3 class="menu-heading">
+                    چیزی یافت نشد
+                    </h3>
+                {% endif %}
+
+            </div>
+            <div class="menu-bottom">
+                <div class="menu-bottom-cover">
+                        <div class="menu-bottom-row" >
+                            {% if foods %}
+                                {% for food in foods %}
+                                <div class="menu-bottom-col">
+                                            <img src="{{ food.photo.url }}" alt="" class="menu-bottom-img">
+                                            <h6 class="menu-bottom-name">اسم: {{ food.title }}</h6>
+                                            <h6 class="menu-bottom-time">زمان :{{ food.time }} دقیقه</h6>
+                                            <h6 class="menu-bottom-price">قیمت:{{ food.price }}</h6>
+                                            <div class="menu-bottom-button trigger">
+                                                    <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>
+                                            </div>
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="menu-bottom-col">
+                                غذایی موجود نیست
+                                </div>
+                            {% endif %}
+{#                                <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                            <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                            <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                            <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                            <div class="menu-bottom-button trigger">#}
+{#                                                    <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>#}
+{#                                            </div>#}
+{#                                                                        </div>#}
+
+                            </div>
+{#                            <div class="menu-bottom-row tabcontent" id="Paris">#}
+{#                                    <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                                <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                                <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                                <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                                <div class="menu-bottom-button trigger">#}
+{#                                                        <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>                                                </div>#}
+{#                                                    </div>#}
+{#                                    <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                                    <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                                    <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                                    <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                                    <div class="menu-bottom-button trigger">#}
+{#                                                            <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>                                                    </div>#}
+{#                                        </div>#}
+{#                                        <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                                        <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                                        <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                                        <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                                        <div class="menu-bottom-button trigger">#}
+{#                                                                <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>                                                        </div>#}
+{#                                            </div>#}
+{#                                            <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                                <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                                <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                                <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                                <div class="menu-bottom-button trigger">#}
+{#                                                        <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>                                                </div>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+                </div>
+            </div>
+
+            <div class="menu-all">
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
+

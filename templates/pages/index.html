@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+    <!-- ///////////////////////////////////////News/////////////////////////////////////// -->
+    <section class="food">
+        <div class="food-cover">
+            <div class="food-content">
+                <div class="food-left">
+                    <div>
+                        <h3 class="food-h3">Discover</h3>
+                    </div>
+                    <div>
+                        <h2 class="food-h2">
+                            Our Featured Food
+                        </h2>
+                    </div>
+                </div>
+                <div class="food-right">
+                    <form action="">
+                        <div class="food-form">
+                            <a href="#" class="food-link">See All Food<span class="food-span"></span></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="food-bottom">
+                <div class="food-row">
+                    {% if news %}
+                    {% for new in news %}
+                                            <div class="food-col">
+                        <div>
+                        <img src="{{ new.photo.url }}" alt="" class="food-img">
+                        </div>
+                        <div class="food-inside">
+                                    <div class="food-2">
+                                        <h2 class="food-heading">{{ new.title }}</h2>
+                                    </div>
+                                    <div>
+                                        <p class="food-paragraph">Fast Food</p>
+                                    </div>
+                        </div>
+                    </div>
+
+                        {% endfor %}
+                    {% else %}
+                        <div class="food-col">
+                            غذا موجود نیست
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ///////////////////////////////////////Menu/////////////////////////////////////// -->
+    <section class="menu">
+        <div class="menu-cover">
+            <div class="menu-top">
+                <h5 class="menu-title">
+                    منو
+                </h5>
+                <h3 class="menu-heading">
+                    بهترین منو های غذا
+                </h3>
+            </div>
+            <div class="menu-center">
+                <div class="menu-content">
+                    <button class="menu-button tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen">
+                        صبحانه
+                    </button>
+                </div>
+                <div class="menu-content">
+                        <button class="menu-button tablinks" onclick="openCity(event, 'Paris')">
+                            ناهار
+                        </button>
+                    </div>
+                    <div class="menu-content">
+                            <button class="menu-button tablinks" onclick="openCity(event, 'London')">
+                                شام
+                            </button>
+                        </div>
+            </div>
+            <div class="menu-bottom">
+                <div class="menu-bottom-cover">
+                        <div class="menu-bottom-row tabcontent" id="Tokyo">
+                            {% if foods %}
+                                {% for food in foods %}
+                                <div class="menu-bottom-col">
+                                            <img src="{{ food.photo.url }}" alt="" class="menu-bottom-img">
+                                            <h6 class="menu-bottom-name">اسم: {{ food.title }}</h6>
+                                            <h6 class="menu-bottom-time">زمان :{{ food.time }} دقیقه</h6>
+                                            <h6 class="menu-bottom-price">قیمت:{{ food.price }}</h6>
+                                            <div class="menu-bottom-button trigger">
+                                                    <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>
+                                            </div>
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="menu-bottom-col">
+                                غذایی موجود نیست
+                                </div>
+                            {% endif %}
+{#                                <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                            <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                            <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                            <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                            <div class="menu-bottom-button trigger">#}
+{#                                                    <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>#}
+{#                                            </div>#}
+{#                                                                        </div>#}
+
+                            </div>
+{#                            <div class="menu-bottom-row tabcontent" id="Paris">#}
+{#                                    <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                                <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                                <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                                <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                                <div class="menu-bottom-button trigger">#}
+{#                                                        <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>                                                </div>#}
+{#                                                    </div>#}
+{#                                    <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                                    <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                                    <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                                    <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                                    <div class="menu-bottom-button trigger">#}
+{#                                                            <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>                                                    </div>#}
+{#                                        </div>#}
+{#                                        <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                                        <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                                        <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                                        <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                                        <div class="menu-bottom-button trigger">#}
+{#                                                                <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>                                                        </div>#}
+{#                                            </div>#}
+{#                                            <div class="menu-bottom-col">#}
+{#                                            <img src="{% static 'img/brooke-lark-W9OKrxBqiZA-unsplash.jpg'%}" alt="" class="menu-bottom-img">#}
+{#                                                <h6 class="menu-bottom-name">اسم: پیتزا</h6>#}
+{#                                                <h6 class="menu-bottom-time">زمان :30 دقیقه</h6>#}
+{#                                                <h6 class="menu-bottom-price">قیمت:54000</h6>#}
+{#                                                <div class="menu-bottom-button trigger">#}
+{#                                                        <button data-name="Banana" data-price="1.22" class="add-to-cart menu-bottom-btn show-modal">سبد خرید</button>                                                </div>#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+                </div>
+            </div>
+
+            <div class="menu-all">
+                <form action="" class="menu-all-form">
+                    <button class="menu-all-food">
+                        تمام غذاها     </i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ///////////////////////////////////////Login/////////////////////////////////////// -->
+    <section class="login">
+        <div class="login-cover">
+            <div class="login-left">
+                <div class="login-left-cover">
+                    <div class="login-left-row">
+                        <div class="login-left-col">
+                            <h3 class="login-left-h3">Best website Login</h3>
+                            <div class="login-left-form">
+                                <form action="">
+                                    <div class="login-left-div">
+                                        <input type="email" class="login-left-input" placeholder="User Name" id="email" required>
+                                    </div>
+                                    <div class="login-left-div">
+                                        <input type="password" class="login-left-input" placeholder="Password" required>
+                                    </div >
+                                    <div class="login-left-btn">
+                                        <button class="login-left-button">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="login-right">
+                <div class="login-right-cover">
+                    <img src="{% static 'img/cooked-foods-858508.jpg' %}" alt="" class="login-right-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ///////////////////////////////////////content/////////////////////////////////////// -->
+    <section class="content" >
+        <div class="content-cover">
+            <div class="content-row">
+                <div class="content-col">
+                    <h4 class="content-heading">Resorce</h4>
+                    <p class="content-paragraph">Contact us</p>
+                    <p class="content-paragraph">FAQ</p>
+                    <p class="content-paragraph">Email Support</p>
+                    <p class="content-paragraph">API Documation</p>
+                </div>
+
+                <div class="content-col">
+                <h4 class="content-heading">Menu</h4>
+                <p class="content-paragraph">Garlin Badge</p>
+                <p class="content-paragraph">White lane</p>
+                <p class="content-paragraph">Buna kicari</p>
+                <p class="content-paragraph">Piano pasta</p>
+                <p class="content-paragraph">Chines food</p>
+                <p class="content-paragraph">Masla Chicken</p>
+                </div>
+
+                <div class="content-col">
+                <h4 class="content-heading">Service</h4>
+                <p class="content-paragraph">Home Delivery</p>
+                <p class="content-paragraph">Office Delivery</p>
+                <p class="content-paragraph">Desk Delivery</p>
+                <p class="content-paragraph">Weeking</p>
+                <p class="content-paragraph">Events</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

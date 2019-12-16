@@ -1,0 +1,25 @@
+
+ <section >
+        <div class="header-cover">
+            <div class="header-left">
+                <img src="" alt="" class="header-img">
+            </div>
+            <div class="header-center">
+                <form action="">
+                    <ul class="header-ul">
+                        <li class="header-li"><a href="{% url 'index' %}" class="header-link">خانه</a></li>
+                        <li class="header-li"><a href="#" class="header-link">منو</a></li>
+                        <li class="header-li"><a href="#" class="header-link">درباره ما</a></li>
+                        <li class="header-li"><a href="#" class="header-link">تماس با ما</a></li>
+                    </ul>
+                </form>
+            </div>
+            <div class="header-right">
+                <form action="{% url 'search' %}" class="header-search">
+                    <input type="text" name="keywords" class="header-input" placeholder="جستجو">
+                    <button class="header-button"><i class="fa fa-search" ></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
