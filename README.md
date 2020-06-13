@@ -1,3 +1,10 @@
 # reza-project
-# reza-project
-# reza
+
+
+source env/bin/activate
+
+Pip install Django
+
+python manage.py runserver
+
+
