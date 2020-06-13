@@ -83,7 +83,7 @@ for (i = 0; i < coll.length; i++) {
 
 
 
-///////////////////////////////modal///////////
+
 var shoppingCart = (function() {
   // =============================
   // Private methods and propeties
@@ -289,3 +289,11 @@ $('.show-cart').on("change", ".item-count", function(event) {
 });
 
 displayCart();
+
+
+
+
+//////////////////////alert///////////////
+setTimeout(function () {
+  $('#message').fadeOut('slow');
+},3000);
